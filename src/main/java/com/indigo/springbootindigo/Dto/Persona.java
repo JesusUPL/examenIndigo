@@ -3,11 +3,14 @@ package com.indigo.springbootindigo.Dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -38,18 +41,24 @@ public class Persona implements Serializable{
 	
 	@NonNull
 	@NotBlank
+	@Column(name = "name")
 	private String nombre;
 	
+	@Column(name = "age")
 	private int edad;
 	
 	@NotNull
 	@NotBlank
+	@Column(name = "gender")
 	private String sexo;
 	
 	@NotNull
 	@NotBlank
+	@Column(name = "code")
 	private String codigo;
 	
+	@Column(name = "createdAt")
+	@Temporal(TemporalType.DATE)
 	private Date creacionRegistro;
 	
 	

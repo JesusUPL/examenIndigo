@@ -3,6 +3,7 @@ package com.indigo.springbootindigo.Dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,11 +34,14 @@ public class Identificacion implements Serializable{
 	private Long id;
 	
 	@NotNull
+	@Column(name = "identificationName")
 	private String nombreIdentificacion;
 	
 	@NotNull
+	@Column(name = "description")
 	private String descripcion;
 	
+	@Column(name = "createdAt")
 	private Date fechaCreacion;
 	
 	public Long getId() {
