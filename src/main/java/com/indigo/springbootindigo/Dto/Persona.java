@@ -25,7 +25,6 @@ public class Persona implements Serializable{
 	}
 	
 	public Persona(String nombre, int edad, String sexo, String codigo, Date creacionRegistro) {
-		super();
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sexo = sexo;
