@@ -2,6 +2,7 @@ package com.indigo.springbootindigo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.indigo.springbootindigo.entity.Identificacion;
 import com.indigo.springbootindigo.repository.IdentificacionRepository;
@@ -14,24 +15,28 @@ public class IndentificacionServiceImpl implements IdentificacionService{
 	private IdentificacionRepository identificacionRepository;
 
 	@Override
+	@Transactional(readOnly = true)
 	public Iterable<Identificacion> findAll() {
 		// TODO Auto-generated method stub
 		return identificacionRepository.findAll();
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Identificacion findId(Long id) {
 		// TODO Auto-generated method stub
 		return identificacionRepository.findById(id).orElse(null);
 	}
 
 	@Override
+	@Transactional
 	public void save(Identificacion identificacion) {
 		identificacionRepository.save(identificacion);
 		
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
 		identificacionRepository.deleteById(id);
 		
