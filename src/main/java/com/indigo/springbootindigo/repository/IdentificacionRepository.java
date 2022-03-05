@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.indigo.springbootindigo.entity.Identificacion;
 
-public interface IdentificationRepository extends JpaRepository <Identificacion, Long>{
+public interface IdentificacionRepository extends JpaRepository <Identificacion, Long>{
 
 }

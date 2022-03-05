@@ -16,24 +16,24 @@ public class PeronaServiceImpl implements PersonaService{
 	@Override
 	public Iterable<Persona> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return personaRepository.findAll();
 	}
 
 	@Override
 	public Persona findId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return personaRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public void save(Persona persona) {
-		// TODO Auto-generated method stub
+		personaRepository.save(persona);
 		
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		personaRepository.deleteById(id);
 		
 	}
 
