@@ -6,10 +6,10 @@ public interface PersonaService {
 	
 public Iterable<Persona> findAll();
 	
-	public Persona findId();
+	public Persona findId(Long id);
 	
-	public void save();
+	public void save(Persona persona);
 	
-	public void delete();
+	public void delete(Long id);
 
 }

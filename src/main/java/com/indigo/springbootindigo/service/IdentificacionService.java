@@ -6,10 +6,10 @@ public interface IdentificacionService {
 	
 	public Iterable<Identificacion> findAll();
 	
-	public Identificacion findId();
+	public Identificacion findId(Long id);
 	
-	public void save();
+	public void save(Identificacion identificacion);
 	
-	public void delete();
+	public void delete(Long id);
 
 }
