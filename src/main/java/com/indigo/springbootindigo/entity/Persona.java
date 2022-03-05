@@ -1,4 +1,4 @@
-package com.indigo.springbootindigo.Dto;
+package com.indigo.springbootindigo.entity;
 
 import java.io.Serializable;
 import java.util.Date;
