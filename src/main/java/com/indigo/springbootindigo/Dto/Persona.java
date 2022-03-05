@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "personas")
+@Table(name = "persona")
 public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = -4839806247658244742L;
