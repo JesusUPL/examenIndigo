@@ -26,6 +26,14 @@ public class Identificacion implements Serializable{
 	}
 	
 	
+	
+	public Identificacion(String nombreIdentificacion, String descripcion) {
+		this.nombreIdentificacion = nombreIdentificacion;
+		this.descripcion = descripcion;
+	}
+
+
+
 	public Identificacion(String nombreIdentificacion, String descripcion, Date fechaCreacion) {
 		this.nombreIdentificacion = nombreIdentificacion;
 		this.descripcion = descripcion;

@@ -39,7 +39,7 @@ public class IdentificacionController {
 		return ResponseEntity.ok(identificacion);
 	}
 	
-	@RequestMapping(value = "/update/{id}")
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> update (@RequestBody Identificacion identificacion, @PathVariable(value = "id")Long id){
 		Identificacion obtenerIdentificacion = identificacionService.findId(id);
 		
@@ -55,7 +55,7 @@ public class IdentificacionController {
 		
 	}
 	
-	@RequestMapping(value = "/delete/{id}")
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> delete (@PathVariable(value = "id")Long id){
 		Identificacion identificacion = identificacionService.findId(id);
 		

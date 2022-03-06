@@ -1,7 +1,9 @@
 package com.indigo.springbootindigo.entity;
 
 import java.io.Serializable;
+import java.security.SecureRandom;
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
@@ -28,10 +31,15 @@ public class Persona implements Serializable{
 	
 	}
 	
+	public Persona(String nombre, int edad ) {
+		this.nombre = nombre;
+		this.edad = edad;
+	}
+	
 	public Persona(String nombre, int edad, String sexo, String codigo, Date creacionRegistro) {
 		this.nombre = nombre;
 		this.edad = edad;
-		this.sexo = sexo;
+		this.sexo = " ";
 		this.codigo = codigo;
 		this.creacionRegistro = creacionRegistro;
 	}
@@ -92,7 +100,7 @@ public class Persona implements Serializable{
 		return codigo;
 	}
 	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+		this.codigo = this.generateStringRamdon();
 	}
 	public Date getCreacionRegistro() {
 		return creacionRegistro;
@@ -100,5 +108,25 @@ public class Persona implements Serializable{
 	public void setCreacionRegistro(Date creacionRegistro) {
 		this.creacionRegistro = creacionRegistro;
 	} 
-
+	
+	public String generateStringRamdon(){
+		String caracter  = "abcdefghijklmnopqrstuvwxyz";
+		String caracterUp = caracter.toUpperCase();
+		
+		String cadenasRandom = caracter + caracterUp;
+		SecureRandom random = new SecureRandom();
+		
+		if (10 < 1) throw new IllegalArgumentException();
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i<10 ; i++) {
+			int lenRm = random.nextInt(cadenasRandom.length());
+			char rnchar = cadenasRandom.charAt(lenRm);
+			
+			sb.append(rnchar);
+		}
+		
+		return sb.toString();
+	}
 }
