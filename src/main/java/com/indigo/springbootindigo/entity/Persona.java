@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -71,6 +75,10 @@ public class Persona implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date creacionRegistro;
 	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@Column(name = "idntificaciones")
+	private List<Identificacion> identificaciones; 
+	
 	
 	public Long getId() {
 		return id;
@@ -109,6 +117,14 @@ public class Persona implements Serializable{
 		this.creacionRegistro = creacionRegistro;
 	} 
 	
+	public List<Identificacion> getIdentificaciones() {
+		return identificaciones;
+	}
+
+	public void setIdentificaciones(List<Identificacion> identificaciones) {
+		this.identificaciones = identificaciones;
+	}
+
 	public String generateStringRamdon(){
 		String caracter  = "abcdefghijklmnopqrstuvwxyz";
 		String caracterUp = caracter.toUpperCase();
