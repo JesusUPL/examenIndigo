@@ -30,8 +30,8 @@ public class IndentificacionServiceImpl implements IdentificacionService{
 
 	@Override
 	@Transactional
-	public void save(Identificacion identificacion) {
-		identificacionRepository.save(identificacion);
+	public Identificacion save(Identificacion identificacion) {
+		return identificacionRepository.save(identificacion);
 		
 	}
 

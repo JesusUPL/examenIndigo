@@ -29,7 +29,7 @@ public class PersonaController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> Read (@PathVariable(value = "id") Long id){
+	public ResponseEntity<?> read (@PathVariable(value = "id") Long id){
 		Persona persona = personaService.findId(id);
 		
 		if(persona == null) {

@@ -8,7 +8,7 @@ public interface IdentificacionService {
 	
 	public Identificacion findId(Long id);
 	
-	public void save(Identificacion identificacion);
+	public Identificacion save(Identificacion identificacion);
 	
 	public void delete(Long id);
 
