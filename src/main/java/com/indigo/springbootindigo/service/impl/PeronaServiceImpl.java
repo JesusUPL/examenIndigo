@@ -30,8 +30,8 @@ public class PeronaServiceImpl implements PersonaService{
 
 	@Override
 	@Transactional
-	public void save(Persona persona) {
-		personaRepository.save(persona);
+	public Persona save(Persona persona) {
+		return personaRepository.save(persona);
 		
 	}
 

@@ -8,7 +8,7 @@ public Iterable<Persona> findAll();
 	
 	public Persona findId(Long id);
 	
-	public void save(Persona persona);
+	public Persona save(Persona persona);
 	
 	public void delete(Long id);
 
