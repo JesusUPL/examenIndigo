@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.indigo.springbootindigo.entity.Persona;
 import com.indigo.springbootindigo.service.PersonaService;
 
+/**
+ * @author Jesus Uriel Perez Lozada
+ * @apiNote crud para personas 
+ * @category restController
+ * @version 1.0
+ * */
 @RestController
 @RequestMapping(value = "/api/personas")
 public class PersonaController {
@@ -23,11 +29,22 @@ public class PersonaController {
 	@Autowired
 	private PersonaService personaService;
 	
+	/**
+	 * @method para crear personas
+	 * @param se le pasa el cuerpo de la persona
+	 * @return retorna la personas creada
+	 * 
+	 * */
 	@RequestMapping(value = "/created", method = RequestMethod.POST)
 	public ResponseEntity<?> create (@RequestBody Persona persona){
 		return ResponseEntity.status(HttpStatus.CREATED).body(personaService.save(persona));
 	}
 	
+	/**
+	 * @method para encontrar la personas con el id asignado 
+	 * @param se manda el id de la persona para devolver los valores
+	 * @return devuelve la persona encontrada con el id asignado 
+	 * */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> read (@PathVariable(value = "id") Long id){
 		Persona persona = personaService.findId(id);
@@ -39,6 +56,12 @@ public class PersonaController {
 		return ResponseEntity.ok(persona);
 	}
 	
+	/**
+	 * @method para modificar las personas
+	 * @param se obtiene la persona con el id 
+	 * @return retorna la persona con los valores editados
+	 * 
+	 * */
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> update(@RequestBody Persona persona, @PathVariable(value = "id")Long id){
 		Persona obtenerPersona = personaService.findId(id);
@@ -56,6 +79,10 @@ public class PersonaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(personaService.save(obtenerPersona));
 	}
 	
+	/**
+	 * @method se elimina la persona por id
+	 * @param se obtiene la persona con el id para eliminar
+	 * **/
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> delete (@PathVariable(value = "id")Long id){
 		Persona persona = personaService.findId(id);
@@ -69,6 +96,10 @@ public class PersonaController {
 		
 	}
 	
+	/**
+	 * @method para obtener a todas las personas
+	 * @return devuelve a todas las personas de la base de datos
+	 * */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Persona> readAll (){
 		List<Persona> personas = StreamSupport

@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -75,7 +76,8 @@ public class Persona implements Serializable{
 	private Date creacionRegistro;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@Column(name = "idntificaciones")
+	@Column(name = "identificaciones")
+	@JoinColumn(name = "persona_id")
 	private List<Identificacion> identificaciones; 
 	
 	
