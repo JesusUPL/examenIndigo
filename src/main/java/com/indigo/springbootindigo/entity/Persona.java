@@ -3,7 +3,6 @@ package com.indigo.springbootindigo.entity;
 import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.CascadeType;
