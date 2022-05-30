@@ -9,12 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
+import com.indigo.springbootindigo.SpringBootIndigoApplication;
+
 @SpringBootTest
 @AutoConfigureMockMvc
+@ContextConfiguration(classes = SpringBootIndigoApplication.class)
 class IdentificacionControllerTest {
 	
 	private static final String URL = "/api/identificaciones";
@@ -37,7 +41,8 @@ class IdentificacionControllerTest {
 	void readAll() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders
 				.get(URL.concat("/"))
-				.contentType(MediaType.APPLICATION_JSON))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(status().isOk());
 	}
